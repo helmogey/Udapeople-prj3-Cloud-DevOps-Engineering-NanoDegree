@@ -5,13 +5,7 @@ orbs:
   slack: circleci/slack@4.1.1
   aws-cli: circleci/aws-cli@1.3.0
 
-parameters:
-  workflow-id:
-    type: string
-    default: "${CIRCLE_WORKFLOW_ID:0:7}"
-  sh-token:
-    type: string
-    default: "b9461c43-6888-4d04-8e76-7beeddbb863c" 
+
 
 commands:
   destroy-environment:
@@ -23,7 +17,7 @@ commands:
         default: "${CIRCLE_WORKFLOW_ID:0:7}"
       sh-token:
         type: string
-        default: "b9461c43-6888-4d04-8e76-7beeddbb863c" 
+        default: "2f:c4:43:e8:92:55:9e:8a:04:6a:26:b7:3f:ad:a0:0b" 
       
     steps:
       - run:
@@ -43,7 +37,7 @@ commands:
         default: "${CIRCLE_WORKFLOW_ID:0:7}"
       sh-token:
         type: string
-        default: "b9461c43-6888-4d04-8e76-7beeddbb863c"     
+        default: "2f:c4:43:e8:92:55:9e:8a:04:6a:26:b7:3f:ad:a0:0b"     
     steps:
       - run:
           name: Revert migrations
