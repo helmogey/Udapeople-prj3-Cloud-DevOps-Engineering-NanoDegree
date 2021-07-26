@@ -152,7 +152,7 @@ jobs:
       - image: cimg/base:2020.01
     steps:
       - checkout
-      - aws-cli/setup
+      #- aws-cli/setup
       - run:
           name: Ensure back-end infrastructure exists
           command: |
@@ -234,7 +234,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - checkout
-      - aws-cli/setup
+      #- aws-cli/setup
 
       - run:
           name: Run migrations
@@ -303,7 +303,7 @@ jobs:
             cat .env
             npm run build
             
-      - aws-cli/setup # Added
+      #- aws-cli/setup # Added
       
       - run:
           name: Deploy frontend objects
@@ -405,7 +405,7 @@ jobs:
       - image: cimg/base:2020.01
     steps:
       - checkout
-      - aws-cli/setup
+      #- aws-cli/setup
       - run:
           name: Remove old stacks and files
           command: |
