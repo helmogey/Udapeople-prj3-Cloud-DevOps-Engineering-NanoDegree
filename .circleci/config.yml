@@ -21,9 +21,13 @@ commands:
           when: on_fail
           command: |
             # Your code here
-            aws s3 rm --recursive s3://udapeople-<< parameters.id >> --recursive 
-            aws cloudformation delete-stack --stack-name udapeople-backend-<< parameters.id >>
-            aws cloudformation delete-stack --stack-name udapeople-frontend-<< parameters.id >>
+            #aws s3 rm --recursive s3://udapeople-<< parameters.id >> --recursive 
+            #aws cloudformation delete-stack --stack-name udapeople-backend-<< parameters.id >>
+            #aws cloudformation delete-stack --stack-name udapeople-frontend-<< parameters.id >>
+            
+            aws s3 rm --recursive s3://udapeople-<< pipeline.parameters.workflow-id >>
+            aws cloudformation delete-stack --stack-name udapeople-backend-<< pipeline.parameters.workflow-id >>"
+            aws cloudformation delete-stack --stack-name udapeople-frontend-<< pipeline.parameters.workflow-id >>"
 
   revert-migrations:
     description: Revert the last migration if successfully run in the current workflow.
