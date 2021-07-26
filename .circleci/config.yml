@@ -157,7 +157,7 @@ jobs:
       - image: cimg/base:2020.01
     steps:
       - checkout
-      #- aws-cli/setup
+      - aws-cli/setup
       - run:
           name: Ensure back-end infrastructure exists
           command: |
@@ -239,7 +239,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - checkout
-      #- aws-cli/setup
+      - aws-cli/setup
 
       - run:
           name: Run migrations
@@ -267,7 +267,7 @@ jobs:
           name: Send migration results to memstash
           command: |
             curl -H "Content-Type: text/plain" \
-              -H "token: << pipeline.parameters.memstash-token >>" \
+              -H "token: << pipeline.parameters.sh-token >>" \
               --request PUT --data "1" \
               https://api.memstash.io/values/migration_${CIRCLE_WORKFLOW_ID}
      # Here's where you will add some code to rollback on failure  
@@ -308,7 +308,7 @@ jobs:
             cat .env
             npm run build
             
-      #- aws-cli/setup # Added
+      - aws-cli/setup # Added
       
       - run:
           name: Deploy frontend objects
@@ -410,7 +410,7 @@ jobs:
       - image: cimg/base:2020.01
     steps:
       - checkout
-      #- aws-cli/setup
+      - aws-cli/setup
       - run:
           name: Remove old stacks and files
           command: |
