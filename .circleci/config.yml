@@ -9,6 +9,9 @@ parameters:
   workflow-id:
     type: string
     default: "${CIRCLE_WORKFLOW_ID:0:7}"
+  sh-token:
+    type: string
+    default: "2f:c4:43:e8:92:55:9e:8a:04:6a:26:b7:3f:ad:a0:0b" 
 
 commands:
   destroy-environment:
