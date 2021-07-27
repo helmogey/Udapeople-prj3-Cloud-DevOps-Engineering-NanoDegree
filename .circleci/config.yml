@@ -65,6 +65,21 @@ commands:
             fi
             
 jobs:
+
+  install-backend-dependencies:
+    executor: node
+    steps:
+      - checkout
+      - run:
+          name: npm install
+          working_directory: ./backend
+          command: ls -la && npm install
+      - persist_to_workspace:
+          root: .
+          paths:
+            - backend/node_modules
+            
+            
   build-frontend:
     docker:
       - image: circleci/node:13.8.0
@@ -75,7 +90,6 @@ jobs:
       - run:
           name: Build front-end
           command: |
-            # Your code here
             cd frontend
             sudo npm install webpack-dev-server -g
             sudo npm install
@@ -96,8 +110,6 @@ jobs:
           name: Back-end build
           working_directory: ./backend
           command: |
-            ls -la && npm install
-            npm audit fix
             npm i
             npm run build
       - save_cache:
