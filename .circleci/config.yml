@@ -65,21 +65,7 @@ commands:
             fi
             
 jobs:
-
-  install-backend-dependencies:
-    executor: node
-    steps:
-      - checkout
-      - run:
-          name: npm install
-          working_directory: ./backend
-          command: ls -la && npm install
-      - persist_to_workspace:
-          root: .
-          paths:
-            - backend/node_modules
-            
-            
+                   
   build-frontend:
     docker:
       - image: circleci/node:13.8.0
@@ -110,6 +96,9 @@ jobs:
           name: Back-end build
           working_directory: ./backend
           command: |
+            npm install @types/jasmine
+            npm install "concurrently"
+            npm install "lite-server"
             npm i
             npm run build
       - save_cache:
