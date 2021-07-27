@@ -96,7 +96,6 @@ jobs:
           name: Back-end build
           working_directory: ./backend
           command: |
-            npm install @types/jasmine
             npm install "concurrently"
             npm install "lite-server"
             npm i
