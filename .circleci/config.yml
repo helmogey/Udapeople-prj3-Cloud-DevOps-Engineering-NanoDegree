@@ -156,7 +156,8 @@ jobs:
           name: Back-end security scan
           command: |
             cd backend
-            npm audit --audit-level=critical
+            npm i
+            npm audit --audit-level=critical --force
 
   deploy-infrastructure:
     docker:
