@@ -6,10 +6,10 @@ describe('Employee Remover', () => {
   describe('when a user activates an employee', () => {
     const MockEmployeeRepository = jest.fn<EmployeeRepository, []>(
       () =>
-        ({
-          findById: jest.fn().mockResolvedValue([]),
-          save: jest.fn(),
-        } as any),
+      ({
+        findById: jest.fn().mockResolvedValue([]),
+        save: jest.fn(),
+      } as any),
     );
 
     const employeeRepository = new MockEmployeeRepository();
