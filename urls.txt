@@ -1,0 +1,5 @@
+https://github.com/helmogey/Udapeople-prj3-Cloud-DevOps-Engineering-NanoDegree
+http://udapeople-f325126b-b91d-428f-a1e4-8685f37c11f9.s3.us-west-2.amazonaws.com
+d1wbai13wna073.cloudfront.net
+52.33.222.65
+34.218.244.77
